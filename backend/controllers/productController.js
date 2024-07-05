@@ -1,5 +1,22 @@
 import Product from "../models/productsSchema.js";
 
+//route for user
+
+export const prodList = async (req, res) => {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//route for seller
 export const createPro = async (req, res) => {
     try {
 
@@ -44,14 +61,14 @@ export const updatePro = async (req, res) => {
         }
 
         product.name = name || product.name,
-        product.price = price || product.price,
-        product.discount = discount || product.discount,
-        product.rating = rating || product.rating,
-        product.category = category || product.category,
-        product.image = image || product.image
+            product.price = price || product.price,
+            product.discount = discount || product.discount,
+            product.rating = rating || product.rating,
+            product.category = category || product.category,
+            product.image = image || product.image
         product.description = description || product.description,
 
-        product = await product.save();
+            product = await product.save();
 
         res.status(200).send(product).select("-password");
 
