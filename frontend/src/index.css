@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./assets/background.jpg");
+    background-size: 99%; /* Adjust percentage to zoom out */
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

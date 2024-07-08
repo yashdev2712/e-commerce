@@ -1,16 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Login from "./Pages/Login/Login";
+import Signup from "./Pages/Signup/Signup";
 
 const App = () => {
   return (
-    <div>
-      <button className="btn">Button</button>
-      <button className="btn btn-neutral">Neutral</button>
-      <button className="btn btn-primary">Primary</button>
-      <button className="btn btn-secondary">Secondary</button>
-      <button className="btn btn-accent">Accent</button>
-      <button className="btn btn-ghost">Ghost</button>
-      <button className="btn btn-link">Link</button>
-    </div>
+    <>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
+      </Routes>
+
+    </>
   )
 }
 

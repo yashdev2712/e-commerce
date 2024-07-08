@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userSchema.js";
 
-const protecter = async (req, res, next) => {
+const authMiddleware = async (req, res, next) => {
     try {
         const token = req.cookies.jwt;
         if (!token) {
@@ -16,12 +16,19 @@ const protecter = async (req, res, next) => {
                 message: "invalid token"
             })
         }
-        const user = await User.findById(decode.userId).select("-password");
+
+        const user = await User.findById(decode.userId);
         req.user = user;
-next();
+        next();
 
     } catch (error) {
-
+        console.log("error in middleware");
+        return res.status(401).json({
+            error: error.message
+        })
     }
 
 }
+
+
+export default authMiddleware;

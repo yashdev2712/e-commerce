@@ -1,19 +1,54 @@
 import Product from "../models/productsSchema.js";
+import User from "../models/userSchema.js";
 
 //route for user
-
-export const prodList = async (req, res) => {
-
+export const addProduct = async (req, res) => {
+    try {
+        const productId = req.params.id;
+        const product = await Product.findById(productId);
+        if (!product) {
+            return res.status(404).json({
+                message: "Product does not exist"
+            });
+        }
+        
+        const userId = req.user._id;
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({
+                message: "User does not exist"
+            });
+        }
+        
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { $addToSet: { cart: productId } },
+            { new: true }
+        );
+        
+        res.status(200).send(updatedUser);
+    } catch (error) {
+        console.log("error while adding product to cart");
+        res.status(400).json({
+            error: error.message
+        })
+    }
 }
 
 
+        export const cart = async (req, res) => {
+            try {
+            const userId = req.user._id;
+            console.log(userId);
+            const user = await User.findById(userId).select("cart").populate("cart");
+            
+            return res.send(user.cart);
 
-
-
-
-
-
-
+            } catch (error) {
+            console.error("Error while fetching cart:", error);
+            return res.status(500).json({ error: error.message });
+            }
+        };
 
 
 //route for seller
@@ -83,6 +118,8 @@ export const updatePro = async (req, res) => {
 export const removePro = async (req, res) => {
     try {
         const productId = req.params.id;
+        const userId = req.user._id;
+
 
         const product = await Product.findById(productId);
         if (!product) {
