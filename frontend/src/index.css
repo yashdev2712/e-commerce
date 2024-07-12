@@ -9,9 +9,9 @@
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./assets/background.jpg");
-    background-size: 99%; /* Adjust percentage to zoom out */
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./assets/merry-safe-background-new-normal-celebration.jpg");
+    background-size: 100%; /* Adjust percentage to zoom out */
+    background-position: bottom;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
