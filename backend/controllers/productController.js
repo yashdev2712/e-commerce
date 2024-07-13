@@ -59,8 +59,7 @@ export const updatePro = async (req, res) => {
         return res.status(200).json(product);  // Send the response and exit the function
 
     } catch (error) {
-        console.log("error in update product:", error);  // Include error details in the log
-         // Check if the headers are already sent
+        console.log("error in update product:", error);  
             return res.status(500).json({
                 error: error.message
             });
@@ -71,8 +70,6 @@ export const updatePro = async (req, res) => {
 export const removePro = async (req, res) => {
     try {
         const productId = req.params.id;
-        const userId = req.user._id;
-
 
         const product = await Product.findById(productId);
         if (!product) {
@@ -128,7 +125,7 @@ export const addProduct = async (req, res) => {
         export const cart = async (req, res) => {
             try {
             const userId = req.user._id;
-            console.log(userId);
+            
             const user = await User.findById(userId).select("cart").populate("cart");
             
             return res.send(user.cart);
