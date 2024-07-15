@@ -1,13 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
-
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 
 *{
@@ -17,8 +12,8 @@
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./assets/merry-safe-background-new-normal-celebration.jpg");
-    background-size: 100%; /* Adjust percentage to zoom out */
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./assets/backgorund/bg-1.jpg");
+    background-size: 100%; 
     background-position: bottom;
     background-attachment: fixed;
     background-repeat: no-repeat;
